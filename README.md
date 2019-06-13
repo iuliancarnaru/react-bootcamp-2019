@@ -1,6 +1,6 @@
 # React-bootcamp-2019
 
-This bootcamp is based on the course "The Modern React Bootcamp (Hooks, Context, NextJS, Router)" - Colt Steele on Udemy.
+This bootcamp is based on the course "The Modern React Bootcamp (Hooks, Context, NextJS, Router)" - Colt Steele
 
 ## Extra Documentation
 
