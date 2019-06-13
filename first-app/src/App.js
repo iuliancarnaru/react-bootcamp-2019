@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fruits } from './foods';
+import fruits from './foods';
 import { generateRandomFruit, removeFruit } from './helpers';
 
 class App extends Component {
@@ -9,6 +9,7 @@ class App extends Component {
         return (
             <div>
                 <h1>Hello from React App.</h1>
+                
                 {console.log(`I would like some ${fruit}, please.`)}
                 {console.log(`Here you go: ${fruit}`)}
                 {console.log(`Delicious! May I have another?`)}
