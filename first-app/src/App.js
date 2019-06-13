@@ -12,8 +12,7 @@ class App extends Component {
                 {console.log(`I would like some ${fruit}, please.`)}
                 {console.log(`Here you go: ${fruit}`)}
                 {console.log(`Delicious! May I have another?`)}
-                {removeFruit(fruits, fruit)}
-                {console.log(`I am sorry we have only ${fruits} left.`)}
+                {console.log(`I am sorry we have only ${removeFruit(fruits, fruit)} left.`)}
             </div>
         );
     }

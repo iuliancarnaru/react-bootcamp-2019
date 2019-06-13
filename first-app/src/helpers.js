@@ -6,5 +6,5 @@ export const removeFruit = (array, fruit) => {
     // }
     // return array;
 
-    return array.filter(fruits => fruits !== fruit);
+    return array.filter(item => item !== fruit);
 }
