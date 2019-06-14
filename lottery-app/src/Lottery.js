@@ -17,11 +17,18 @@ class Ticket extends Component {
   }
 
   generate = () => {
-    // this.setState(prevState => ({
-    //   nums: prevState.nums.map(
-    //     random => Math.floor(Math.random() * this.props.maxNum) + 1
-    //   )
-    // }));
+    let arr = [];
+
+    while (arr.length < this.props.maxBalls) {
+      let random = Math.floor(Math.random() * this.props.maxNum) + 1;
+      if (arr.indexOf(random) === -1) {
+        arr.push(random)
+      }
+    }
+
+    this.setState({
+      nums: [...arr]
+    })
   };
 
   handleClick = () => {
