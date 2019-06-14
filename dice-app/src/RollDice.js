@@ -14,7 +14,7 @@ class RollDice extends Component {
     let random1 = Math.floor(Math.random() * 6) + 1;
     let random2 = Math.floor(Math.random() * 6) + 1;
 
-    function changeNumber(number) {
+    function changeNumberToString(number) {
       switch (number) {
         case 1:
           return "one";
@@ -34,8 +34,8 @@ class RollDice extends Component {
     }
 
     this.setState({
-      dice1: changeNumber(random1),
-      dice2: changeNumber(random2)
+      dice1: changeNumberToString(random1),
+      dice2: changeNumberToString(random2)
     });
   };
 
