@@ -14,9 +14,28 @@ class RollDice extends Component {
         let random1 = Math.floor(Math.random() * 6) + 1;
         let random2 = Math.floor(Math.random() * 6) + 1;
 
+        function changeNumber(number) {
+            switch (number) {
+                case 1:
+                    return 'one';
+                case 2:
+                    return 'two';
+                case 3:
+                    return 'three';
+                case 4:
+                    return 'four';
+                case 5:
+                    return 'five';
+                case 6:
+                    return 'six';
+                default:
+                    return;
+            }
+        }
+
         this.setState({
-            dice1: random1,
-            dice2: random2
+            dice1: changeNumber(random1),
+            dice2: changeNumber(random2)
         });
     };
 
