@@ -1,10 +1,12 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
+import RollDice from "./RollDice";
 
 function App() {
   return (
     <div className="container">
-      <h1>Hello from react</h1>
+      <h1 className="container-heading">Roll dice app</h1>
+      <RollDice />
     </div>
   );
 }
