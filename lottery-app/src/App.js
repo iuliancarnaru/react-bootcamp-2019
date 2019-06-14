@@ -1,11 +1,12 @@
-import React from 'react';
-import Ticket from './Ticket';
-import './App.css';
+import React from "react";
+import Lottery from './Lottery';
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Ticket />
+      <Lottery />
+      <Lottery title='Mini Daily' maxNum={15} maxBalls={4}/>
     </div>
   );
 }
