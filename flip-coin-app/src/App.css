@@ -1,0 +1,22 @@
+body {
+  font-family: "Oswald", sans-serif;
+}
+
+.App {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.coin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+}
