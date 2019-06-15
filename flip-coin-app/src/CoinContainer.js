@@ -1,57 +1,62 @@
 import React, { Component } from "react";
+import { choice } from "./helpers";
 import Coin from "./Coin";
 
 class CoinContainer extends Component {
   static defaultProps = {
-    title: `Let's flip a coin`
+    faces: [
+      {
+        side: "head",
+        imgSrc: "https://i.ebayimg.com/images/g/Md0AAOSw8AtbeDTC/s-l1600.jpg"
+      },
+      {
+        side: "tail",
+        imgSrc: "https://i.ebayimg.com/images/g/jZwAAOSwh81beDS7/s-l1600.jpg"
+      }
+    ]
   };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      coinFace: "head",
-      headTimes: 0,
-      tailTimes: 0,
-      flips: 0
+      currFace: null,
+      nTails: 0,
+      nHeads: 0,
+      nFlips: 0
     };
   }
 
-  handleFlip = () => {
-    function generateRandom() {
-      const options = ["head", "tail"];
-      return options[Math.floor(Math.random() * options.length)];
-    }
+  flipCoin = () => {
+    const newFace = choice(this.props.faces);
 
-    let coinFace = generateRandom();
+    this.setState(prevState => ({
+      currFace: newFace,
+      nFlips: prevState.nFlips + 1,
+      nHeads: prevState.nHeads + (newFace.side === "head" ? 1 : 0),
+      nTails: prevState.nTails + (newFace.side === "tail" ? 1 : 0)
+    }));
+  };
 
-    if (coinFace === "head") {
-      this.setState(prevState => ({
-        ...prevState,
-        coinFace,
-        flips: this.state.flips + 1,
-        headTimes: this.state.headTimes + 1
-      }));
-    } else if (coinFace === "tail") {
-      this.setState(prevState => ({
-        ...prevState,
-        coinFace,
-        flips: this.state.flips + 1,
-        tailTimes: this.state.tailTimes + 1
-      }));
-    }
+  handleFlip = event => {
+    this.flipCoin();
   };
 
   render() {
     return (
       <div className="coin-container">
-        <h1>{this.props.title}</h1>
-        <Coin coinFace={this.state.coinFace} />
+        <h1>Let's flip a coin ...</h1>
+        {this.state.currFace && (
+          <Coin
+            side={this.state.currFace.side}
+            imgSrc={this.state.currFace.imgSrc}
+          />
+        )}
         <button onClick={this.handleFlip}>Flip me!</button>
         <div className="coin-results">
           <p>
-            Out of {this.state.flips}, there have been {this.state.headTimes}{" "}
-            heads and {this.state.tailTimes} tails.
+            Out of {this.state.nFlips}, there have been {this.state.nHeads}{" "}
+            heads and {this.state.nTails} tails.
           </p>
         </div>
       </div>
